@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 10" role="img" aria-labelledby="title">
+  <title id="title">Flag of Canada</title>
+  <path fill="#fff" d="M0 0h20v10H0z"/>
+  <path fill="#d80621" d="M0 0h5v10H0zm15 0h5v10h-5zM10 1l.65 1.35 1.2-.6-.35 1.5 1.35.2-1.05 1 .65.8-1.85-.2.25 2.35H9.15l.25-2.35-1.85.2.65-.8-1.05-1 1.35-.2-.35-1.5 1.2.6z"/>
+</svg>
