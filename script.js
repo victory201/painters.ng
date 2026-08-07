@@ -30,6 +30,19 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
+const testimonialSlider = document.querySelector('[data-testimonial-slider]');
+if (testimonialSlider) {
+  const track = testimonialSlider.querySelector('[data-slider-track]');
+  const move = (direction) => {
+    const card = track.querySelector('.testimonial-card');
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
+  };
+
+  testimonialSlider.querySelector('[data-slider-prev]').addEventListener('click', () => move(-1));
+  testimonialSlider.querySelector('[data-slider-next]').addEventListener('click', () => move(1));
+}
+
 const form = document.querySelector('[data-form]');
 const status = document.querySelector('[data-form-status]');
 form.querySelector('[data-form-started]').value = Math.floor(Date.now() / 1000);
