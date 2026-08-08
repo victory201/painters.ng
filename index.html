@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260808-2">
+  <link rel="stylesheet" href="styles.css?v=20260808-5">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"HousePainter","name":"Painters.ng","url":"https://www.painters.ng/","areaServed":"Lagos, Nigeria","description":"Professional house painting, interior decor and luxury wall finishing services.","sameAs":["https://www.instagram.com/painters.ng/?hl=en","https://web.facebook.com/profile.php?id=100063631866072"],"identifier":"RC:1777382"}
   </script>
@@ -64,10 +64,44 @@
     </section>
 
     <section class="statement section-pad reveal">
-      <p class="section-index">01 / OUR CRAFT</p>
+      <div class="craft-label">
+        <p class="section-index">01 / OUR CRAFT</p>
+        <a class="craft-award-teaser" href="#recognition">
+          <img src="Media/recognition/trophy.webp" alt="African Brands Award 2025 trophy">
+          <span><small>Recognised excellence</small><strong>African Brands Award 2025</strong><i>Explore recognition ↓</i></span>
+        </a>
+      </div>
       <div>
         <h2>We don't just paint walls.<br>We <em>shape atmospheres.</em></h2>
         <p>From quiet, refined interiors to richly textured feature walls, every finish is considered, prepared and executed to last.</p>
+      </div>
+    </section>
+
+    <section id="recognition" class="recognition-showcase section-pad" data-recognition-slider>
+      <div class="recognition-intro reveal">
+        <p class="section-index">RECOGNITION / 2025—2026</p>
+        <h2>Craft recognised<br><em>across Africa.</em></h2>
+        <p>Independent recognition of the care, professionalism and finishing standards behind every Painters.ng project.</p>
+        <div class="recognition-controls">
+          <button type="button" aria-label="Previous recognition" data-recognition-prev>←</button>
+          <p><span data-recognition-current>01</span> / 03</p>
+          <button type="button" aria-label="Next recognition" data-recognition-next>→</button>
+        </div>
+      </div>
+      <div class="recognition-stage reveal" aria-live="polite">
+        <article class="recognition-slide active" data-recognition-slide>
+          <div class="recognition-image portrait"><img src="Media/recognition/trophy.webp" alt="African Brands Award 2025 trophy presented to Painters.ng"></div>
+          <div class="recognition-copy"><span>01 / Brand of the year</span><h3>Leading Professional Painting & Finishing Services</h3><p>African Brands Award recognition for the 2025/2026 award year.</p></div>
+        </article>
+        <article class="recognition-slide" data-recognition-slide hidden>
+          <div class="recognition-image landscape"><img src="Media/recognition/certificate.webp" alt="African Brand Awards 2025 certificate presented to Painters.ng"></div>
+          <div class="recognition-copy"><span>02 / Certificate</span><h3>African Brand Awards 2025</h3><p>Recognition presented to Painters.ng among distinguished African business leaders.</p></div>
+        </article>
+        <article class="recognition-slide" data-recognition-slide hidden>
+          <div class="recognition-image portrait"><img src="Media/recognition/brand-excellence.webp" alt="Brand Excellence Across Africa feature for Painters.ng"></div>
+          <div class="recognition-copy"><span>03 / Media feature</span><h3>Brand Excellence Across Africa</h3><p>Painters.ng featured among innovative African brands delivering world-class services.</p></div>
+        </article>
+        <div class="recognition-progress" aria-hidden="true"><span data-recognition-progress></span></div>
       </div>
     </section>
 
@@ -245,6 +279,6 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3A12.93 12.93 0 0 0 4.86 22.43L3 29l6.73-1.77A12.98 12.98 0 1 0 16.04 3Zm0 23.77c-2.1 0-4.15-.57-5.93-1.65l-.42-.25-4 1.05 1.07-3.9-.27-.43a10.74 10.74 0 1 1 9.55 5.18Zm5.9-8.05c-.32-.16-1.9-.94-2.2-1.05-.29-.11-.5-.16-.71.16-.22.33-.83 1.05-1.02 1.27-.19.21-.38.24-.7.08-.33-.16-1.37-.5-2.61-1.61a9.77 9.77 0 0 1-1.81-2.25c-.19-.33-.02-.5.14-.66.15-.14.33-.38.49-.57.16-.19.21-.32.32-.54.11-.21.06-.4-.02-.56-.08-.17-.73-1.76-1-2.41-.26-.64-.53-.55-.72-.56h-.62c-.22 0-.57.08-.87.4-.3.33-1.14 1.12-1.14 2.72s1.17 3.15 1.33 3.37c.16.21 2.3 3.5 5.56 4.91.78.33 1.38.53 1.85.68.78.25 1.49.21 2.05.13.63-.09 1.9-.78 2.17-1.53.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38Z"/></svg>
     <span>Chat on WhatsApp</span>
   </a>
-  <script src="script.js?v=20260808-4" defer></script>
+  <script src="script.js?v=20260808-5" defer></script>
 </body>
 </html>

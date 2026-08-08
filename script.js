@@ -29,6 +29,59 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
+const recognitionSlider = document.querySelector('[data-recognition-slider]');
+if (recognitionSlider) {
+  const slides = [...recognitionSlider.querySelectorAll('[data-recognition-slide]')];
+  const current = recognitionSlider.querySelector('[data-recognition-current]');
+  const progress = recognitionSlider.querySelector('[data-recognition-progress]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let recognitionIndex = 0;
+  let recognitionTimer;
+  let recognitionVisible = true;
+  let recognitionInteracting = false;
+  let recognitionPointerStart = null;
+
+  const showRecognition = (requestedIndex) => {
+    recognitionIndex = (requestedIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const active = index === recognitionIndex;
+      slide.classList.toggle('active', active);
+      slide.hidden = !active;
+    });
+    current.textContent = String(recognitionIndex + 1).padStart(2, '0');
+    progress.style.width = `${((recognitionIndex + 1) / slides.length) * 100}%`;
+  };
+
+  const startRecognition = () => {
+    window.clearInterval(recognitionTimer);
+    if (reducedMotion.matches || recognitionInteracting || !recognitionVisible || document.hidden) return;
+    recognitionTimer = window.setInterval(() => showRecognition(recognitionIndex + 1), 5000);
+  };
+
+  recognitionSlider.querySelector('[data-recognition-prev]').addEventListener('click', () => { showRecognition(recognitionIndex - 1); startRecognition(); });
+  recognitionSlider.querySelector('[data-recognition-next]').addEventListener('click', () => { showRecognition(recognitionIndex + 1); startRecognition(); });
+  recognitionSlider.querySelector('.recognition-stage').addEventListener('pointerdown', (event) => { recognitionPointerStart = event.clientX; });
+  recognitionSlider.querySelector('.recognition-stage').addEventListener('pointerup', (event) => {
+    if (recognitionPointerStart !== null && Math.abs(event.clientX - recognitionPointerStart) > 45) {
+      showRecognition(recognitionIndex + (event.clientX < recognitionPointerStart ? 1 : -1));
+      startRecognition();
+    }
+    recognitionPointerStart = null;
+  });
+  recognitionSlider.addEventListener('mouseenter', () => { recognitionInteracting = true; startRecognition(); });
+  recognitionSlider.addEventListener('mouseleave', () => { recognitionInteracting = false; startRecognition(); });
+  recognitionSlider.addEventListener('focusin', () => { recognitionInteracting = true; startRecognition(); });
+  recognitionSlider.addEventListener('focusout', (event) => {
+    if (!recognitionSlider.contains(event.relatedTarget)) { recognitionInteracting = false; startRecognition(); }
+  });
+  document.addEventListener('visibilitychange', startRecognition);
+  reducedMotion.addEventListener('change', startRecognition);
+  new IntersectionObserver(([entry]) => {
+    recognitionVisible = entry.isIntersecting;
+    startRecognition();
+  }, { threshold: 0.2 }).observe(recognitionSlider);
+  startRecognition();
+}
 
 const serviceItems = [...document.querySelectorAll('.service-item')];
 const mobileServices = window.matchMedia('(max-width: 900px)');
