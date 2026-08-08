@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Change this to an active mailbox created in cPanel before launch.
-$recipient = 'hello@painters.ng';
+$recipient = 'painters.ng001@gmail.com';
 $siteDomain = 'painters.ng';
 
 $clean = static function (string $key, int $maxLength): string {
