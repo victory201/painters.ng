@@ -106,7 +106,7 @@ if (workGallery) {
   const startAutoplay = () => {
     window.clearInterval(timer);
     if (reducedMotion.matches || interacting || !inView || document.hidden) return;
-    timer = window.setInterval(() => showSlide(activeIndex + 1), 5000);
+    timer = window.setInterval(() => showSlide(activeIndex + 1), 500);
   };
 
   const renderDots = () => {
